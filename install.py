@@ -10,7 +10,6 @@ import sys
 import getopt
 import filecmp
 
-#yum安装最新版openresty
 work_path = os.getcwd()
 
     #check if the old version of VeryNginx installed( use upcase directory )
@@ -24,10 +23,13 @@ def install_openresty( ):
         if ans == 'n':
             yum_install_op = False
 
+    #yum安装最新版openresty    
     if yum_install_op == True:
         print('### start install openresty ...')
 	exec_sys_cmd('yum install -y yum-utils')
 	exec_sys_cmd('yum-config-manager --add-repo https://openresty.org/package/centos/openresty.repo')
+        exec_sys_cmd('yum clean all')
+        exec_sys_cmd('yum makecache')
         exec_sys_cmd('yum install -y openresty')
 
     else:
@@ -35,22 +37,24 @@ def install_openresty( ):
 
 def install_verynginx():
     
+    #create user www
+    os.system( 'useradd www -s /sbin/nologin -M' )
     #install VeryNginx file
     print('### copy VeryNginx files ...')
-    exec_sys_cmd( 'mkdir -p /usr/local/openresty' )
+    if os.path.exists('/usr/local/openresty') == False:
+	exec_sys_cmd( 'mkdir -p /usr/local/openresty' )
     os.chdir( work_path )
-    if os.path.exists('/usr/local/openresty') == True:
-        exec_sys_cmd( 'cp -r -f ./verynginx /usr/local/openresty' )
-
+    exec_sys_cmd( 'cp -r -f ./verynginx /usr/local/openresty' )
+    exec_sys_cmd( 'chown www -R /usr/local/openresty/verynginx' )
+    
     #copy nginx config file to openresty
     if os.path.exists('/usr/local/openresty') == True:
-        if filecmp.cmp( '/usr/local/openresty/nginx/conf/nginx.conf', '/usr/local/openresty/nginx/conf/nginx.conf.default', False ) == True:
-            print('cp nginx config file to openresty')
-            exec_sys_cmd( 'mkdir -p /usr/local/openresty/nginx/conf.d/' )
-            exec_sys_cmd( 'mkdir -p /var/log/nginx' )
-            exec_sys_cmd( 'cp -f ./nginx.conf  /usr/local/openresty/nginx/conf/' )
-            exec_sys_cmd( 'cp -f ./default.conf  /usr/local/openresty/nginx/conf.d/' )
-	    exec_sys_cmd( 'chown www -R /usr/local/openresty/verynginx' )
+       # if filecmp.cmp( '/usr/local/openresty/nginx/conf/nginx.conf', '/usr/local/openresty/nginx/conf/nginx.conf.default', False ) == True:
+	print('cp nginx config file to openresty')
+	exec_sys_cmd( 'mkdir -p /usr/local/openresty/nginx/conf.d/' )
+	exec_sys_cmd( 'mkdir -p /var/log/nginx' )
+	exec_sys_cmd( 'cp -f -b ./nginx.conf  /usr/local/openresty/nginx/conf/' )
+	exec_sys_cmd( 'cp -f -b ./default.conf  /usr/local/openresty/nginx/conf.d/' )
     else:
         print( 'openresty not found in /usr/local/openresty' )
 
