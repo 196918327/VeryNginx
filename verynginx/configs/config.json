@@ -445,6 +445,5 @@
       "body":"<!doctype html>\n<html>\n<head>\n<meta charset=\"utf-8\">\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no\">\n<title>页面访问过快</title>\n<style>\n        body{\n                background-color:#444;\n                font-size:14px;\n        }\n        h3{\n                font-size:60px;\n                color:#eee;\n                text-align:center;\n                padding-top:30px;\n                font-weight:normal;\n        }\n</style>\n</head>\n\n<body>\n<h3>您访问过快, 请稍后再试</h3>\n</body>\n</html>\n"
     }
   },
-  "readonly":true,
   "config_version":"0.36"
 }

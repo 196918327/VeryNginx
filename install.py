@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# @Date    : 2016-04-04 23:48
+# @Date    : 2020-06-12 15:49
 # @Author  : Alexa (AlexaZhou@163.com)
 # @Link    : https://github.com/alexazhou/VeryNginx
 # @Disc    : install VeryNginx
