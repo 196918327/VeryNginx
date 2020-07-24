@@ -52,7 +52,7 @@ def install_verynginx():
        # if filecmp.cmp( '/usr/local/openresty/nginx/conf/nginx.conf', '/usr/local/openresty/nginx/conf/nginx.conf.default', False ) == True:
 	print('cp nginx config file to openresty')
 	exec_sys_cmd( 'mkdir -p /usr/local/openresty/nginx/conf.d/' )
-	exec_sys_cmd( 'mkdir -p /var/log/nginx' )
+	exec_sys_cmd( 'mkdir -p /var/log/nginx/cache' )
 	exec_sys_cmd( 'cp -f -b ./nginx.conf  /usr/local/openresty/nginx/conf/' )
 	exec_sys_cmd( 'cp -f -b ./default.conf  /usr/local/openresty/nginx/conf.d/' )
     else:

@@ -139,11 +139,10 @@
       "response":"firewall_html",
       "action":"block"
     },{
-      "enable":true,
+      "enable":false,
       "custom_response":true,
       "code":"444",
       "matcher":"method_444",
-      "response":"firewall_html",
       "action":"block"
     },{
       "enable":false,
@@ -241,7 +240,7 @@
   "summary_request_enable":true,
   "frequency_limit_rule":[{
       "time":"10",
-      "enable":true,
+      "enable":false,
       "count":"10",
       "code":"521",
       "custom_response":true,
@@ -315,7 +314,7 @@
     },
     "useragent":{
       "UserAgent":{
-        "value":"YisouSpider|ApacheBench*|WebBench*|Jmeter|JoeDog|Havij|GetRight|TurnitinBot|GrabNet|masscan|mail2000|github|wget|curl|Java|python|Go-Ahead-Got-It|GetWeb!|Go!Zilla|Download Demon|Indy Library|libwww-perl|Nmap Scripting Engine|spider|bot|~17ce.com|nmap|w3af|netsparker|nikto|fimap|Go-Ahead-Got-It|GetWeb!|Go!Zilla|Download Demon|Indy Library|libwww-perl|Nmap Scripting Engine|~17ce.com",
+        "value":"YisouSpider|ApacheBench*|WebBench*|Jmeter|JoeDog|Havij|GetRight|TurnitinBot|GrabNet|masscan|mail2000|github|wget|curl|Java|python|Go-Ahead-Got-It|GetWeb!|Go!Zilla|Download Demon|Indy Library|libwww-perl|Nmap Scripting Engine|bot|~17ce.com|nmap|w3af|netsparker|nikto|fimap|Go-Ahead-Got-It|GetWeb!|Go!Zilla|Download Demon|Indy Library|libwww-perl|Nmap Scripting Engine|~17ce.com",
         "operator":"≈"
       }
     },
